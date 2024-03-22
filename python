@@ -1,0 +1,249 @@
+import math
+
+
+# This is not valid
+
+# naam = "Abhiram"
+# naam[0]="B"
+# print(naam)
+
+name = input("What is your name ? ")
+favCol = input("What is fav color ? ")
+#  We can concatinate two strings using '+'
+print(name+ " "+ "likes"+ " "+ favCol)
+
+birthYear = input ("Enter year : ")
+# Here if a number is entered it is stored as a string . So on performing mathematical operations we might have a error being shown
+# So we use type conversions to avoid this pblem
+
+age = 2024 - int(birthYear)
+# int () , float() ; bool() for typeconversions 
+
+# for typing a multiline string we use triple quotes i.e '''xyz ''' or """ """
+message = '''
+hey there Abhiram ,
+Congrats you made it
+'''
+
+# formatted Strings Syntax : f" {} {} '
+message1 = f'{name} likes {favCol} Color';
+
+#len() is used to to find the length of a data type
+print(len(name));
+
+# Methods
+# .upper() : This is used to convert all chars to uppercase
+# .lower() : To lower case
+# .find() : To find index of a char in string or starting index of a group of chars
+# .replace(to_be_changed , changed_one) 
+
+book = "Python for Beginners"
+print('Python' in book) # True is th output
+print('python' in book) #False is output as python is case sensitive
+
+print(10/3) # Output : 3.33333333
+print(10//3) # Output : 3
+print(10**3) # Output : 1000 {power fn}
+
+numx = 2.9
+print(round(numx)) #rounds the number
+print(abs(-2.9)) #absolute value
+#more math functions are present in math module use "import math"
+
+#conditionals
+
+if condition : 
+  print("something")
+  print("more")
+elif condition2 : 
+  print("anything")
+else : 
+  print("coverse")
+
+#ex:
+  
+house_price = 1000000;
+affordable_down_payment = True ;
+downpayment=0
+
+if affordable_down_payment : 
+  downpayment = 0.1 * house_price;
+else :
+  downpayment = 0.2 * house_price
+print("Down payement : {downpayment}")
+
+# Logical operators : "and" , "or" , "not" operators
+
+has_high_income = True ;
+has_good_cs = True
+
+if has_good_cs and has_high_income : 
+  print("Eligible for loan")
+
+#loops
+i=1
+while i<=5 : 
+  print ('*'*i)
+  i +=1 ; 
+print("done!!")
+
+#similar to for (auto num : vec) in C++
+for item in "python" : 
+  print(item);
+
+for x in range(4) :  # range of 4 is 0,1,2,3
+  print(x)
+
+#Lists
+
+names12 = ['Abhi', 'ramaki', 'kalyan', 'lasyan', 'kasak']
+print(names12[-1])
+print(names12[1:])  # Till the end
+print(names12[1:3]) #3rd one i.e lasyan will not be printed
+#we can modify the element by selecting via its index
+
+#to print the largest number
+# In python using loops will not indicate the index It will directly indicate to the element in the index
+num = [1,2,43,5,423,5,67,33,234]
+max = num[0]
+for i in num : 
+  if max<i :
+    max = i
+
+print(max)
+
+#2D lists
+
+matrix = [
+  [1,2,3],            
+  [4,5,6],
+  [7,8,9]
+]  #We can access the elements and change them using basic syntax
+
+#Lists methods
+numbers = [1,2,3,4,5,6]
+numbers.append(7) # adds 7 at the end of list
+numbers.insert(1,100) # adds 100 at the index 1 .insert(index,value)
+numbers.remove(100) #removes 100 from the lsit
+numbers.clear() #Clears the list
+numbers.pop()#Removes the last element
+print(numbers.index(4))# Gives the index of the first occurance of the value
+print(numbers.count(5))# gives the repetition of the value
+numbers.sort() # sorts the array and saves this into existing list
+numbers.reverse()
+numbers2=numbers.copy()#used to assign a list copy to another list
+
+# To check the existance of a value in list we use 'in'
+
+print(5 in numbers) #True
+print(50 in numbers)#False
+
+# To remove the duplicates
+n = [1,1,2,3,4,5,6,6,4,4,4,7,9,0]
+uniq = []
+
+for i in n :
+  if i in uniq :
+    continue
+  else :
+    uniq.append(i)
+
+print(uniq)
+
+#Tupples
+
+numberss = (1,2,3,4)
+#Unlike lists we cant modify them they are immutable
+
+#we only have two methods
+numberss.count()
+numberss.index()
+
+print(numberss[2])
+
+#Unpacking
+coordinates = (1,2,3)
+x,y,z = coordinates
+# Short Hand notation x= coordinates[0];y=coordinates[1];z=coordinates[3]
+print(x)
+print(y)
+print(z)
+
+# Dictionaries : We use where need to store info as key value pairs -> similar to structures
+
+customer = {
+  "name" : "Abhiram",
+  "age"  :18,
+  "is_verified":True
+}
+#Accessing
+print(customer["_key"]); # if key is not there we get error
+print(customer.get("_key")) # we get none if key is not there
+print(customer.get("roll",111)) # the second value is a default value
+
+#changing
+customer["name"] = "Abhiram Varma"
+
+message = input(">")
+words = message.split(' ')
+emojis = {
+  ":)" : "☺"
+}
+output = ""
+for word in words : 
+  output+=emojis.get(word,word)+' '
+print(output)
+
+#Functions :
+# def : (define) defining a function. Name should be starting with small letters
+
+def greet_user(first_name, last_name) :
+  print(f'Hi thetre! {first_name} {last_name}')
+  print("Welcome aboard")
+
+
+# Whenever we define a function we should add 2 line breaks
+#Calling function
+  
+#Positional Arguments : position of arguments matter...
+greet_user("Abhi","Buddaraju")
+
+#Keyword arguments : Arguments whose position doesnt matter.
+# These are used to increase to readability of code.
+# We should always use all positional arguments , then keyword arguments 
+greet_user(last_name="Smith" , first_name="John")
+
+# Return Statement
+# When there is no return statement the function returns "None"
+
+def square(number) : 
+  return number ** 2
+
+
+print(square(3));
+
+# Error Handling : 
+
+try: #every try statement should have a except statement
+  age = int(input("Enter age : "))
+  print(age)
+  income = 200000
+  risk = 20000/age
+#ValueError : any invalid value like string , char , this keeps our code away from getting crashed
+except ValueError: 
+  print("invalid Value")
+# ZeroDivisionError : We include a term for division by zero
+except ZeroDivisionError:
+  print("Age can't be zero")
+
+
+# Classes
+
+class Point:
+  def move(self):
+    print("move")
+
+  def draw(self):
+    print("draw")
+point1 = Point()
+point1.draw()
