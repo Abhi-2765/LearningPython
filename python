@@ -36,6 +36,7 @@ print(len(name));
 # .lower() : To lower case
 # .find() : To find index of a char in string or starting index of a group of chars
 # .replace(to_be_changed , changed_one) 
+# .strip() : Removes white space
 
 book = "Python for Beginners"
 print('Python' in book) # True is th output
@@ -70,15 +71,20 @@ if affordable_down_payment :
   downpayment = 0.1 * house_price;
 else :
   downpayment = 0.2 * house_price
-print("Down payement : {downpayment}")
+print(f"Down payement : {downpayment}")
 
 # Logical operators : "and" , "or" , "not" operators
 
-has_high_income = True ;
+has_high_income = True 
 has_good_cs = True
 
 if has_good_cs and has_high_income : 
   print("Eligible for loan")
+
+# Ternary operator
+a = 2
+b = 330
+print("A") if a > b else print("B")
 
 #loops
 i=1
@@ -93,6 +99,85 @@ for item in "python" :
 
 for x in range(4) :  # range of 4 is 0,1,2,3
   print(x)
+
+for x in range(2, 30, 3):
+  print(x)
+
+#Functions :
+# def : (define) defining a function. Name should be starting with small letters
+
+def greet_user(first_name, last_name) :
+  print(f'Hi thetre! {first_name} {last_name}')
+  print("Welcome aboard")
+
+# Using an '*' before a param makes the param to be a tuple
+
+def my__function(*kids):
+  print("The youngest child is " + kids[2])
+
+my__function("Emil", "Tobias", "Linus")
+
+# This is used to include a default param
+
+def my_function(country = "Norway"):
+  print("I am from " + country)
+
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+
+# Pass statement
+
+def myfunction():
+  pass
+
+# Whenever we define a function we should add 2 line breaks
+#Calling function
+  
+#Positional Arguments : position of arguments matter...
+greet_user("Abhi","Buddaraju")
+
+#Keyword arguments : Arguments whose position doesnt matter.
+# These are used to increase to readability of code.
+# We should always use all positional arguments , then keyword arguments 
+greet_user(last_name="Smith" , first_name="John")
+
+# Return Statement
+# When there is no return statement the function returns "None"
+
+def square(number) : 
+  return number ** 2
+
+
+print(square(3));
+
+# Error Handling : 
+
+try: #every try statement should have a except statement
+  age = int(input("Enter age : "))
+  print(age)
+  income = 200000
+  risk = 20000/age
+#ValueError : any invalid value like string , char , this keeps our code away from getting crashed
+except ValueError: 
+  print("invalid Value")
+# ZeroDivisionError : We include a term for division by zero
+except ZeroDivisionError:
+  print("Age can't be zero")
+
+
+# Classes
+
+class Point:
+  def move(self):
+    print("move")
+
+  def draw(self):
+    print("draw")
+point1 = Point()
+point1.draw()
+
 
 #Lists
 
@@ -151,7 +236,7 @@ for i in n :
 print(uniq)
 
 #Tupples
-
+#Tuple items are ordered, unchangeable, and allow duplicate values.
 numberss = (1,2,3,4)
 #Unlike lists we cant modify them they are immutable
 
@@ -193,57 +278,3 @@ output = ""
 for word in words : 
   output+=emojis.get(word,word)+' '
 print(output)
-
-#Functions :
-# def : (define) defining a function. Name should be starting with small letters
-
-def greet_user(first_name, last_name) :
-  print(f'Hi thetre! {first_name} {last_name}')
-  print("Welcome aboard")
-
-
-# Whenever we define a function we should add 2 line breaks
-#Calling function
-  
-#Positional Arguments : position of arguments matter...
-greet_user("Abhi","Buddaraju")
-
-#Keyword arguments : Arguments whose position doesnt matter.
-# These are used to increase to readability of code.
-# We should always use all positional arguments , then keyword arguments 
-greet_user(last_name="Smith" , first_name="John")
-
-# Return Statement
-# When there is no return statement the function returns "None"
-
-def square(number) : 
-  return number ** 2
-
-
-print(square(3));
-
-# Error Handling : 
-
-try: #every try statement should have a except statement
-  age = int(input("Enter age : "))
-  print(age)
-  income = 200000
-  risk = 20000/age
-#ValueError : any invalid value like string , char , this keeps our code away from getting crashed
-except ValueError: 
-  print("invalid Value")
-# ZeroDivisionError : We include a term for division by zero
-except ZeroDivisionError:
-  print("Age can't be zero")
-
-
-# Classes
-
-class Point:
-  def move(self):
-    print("move")
-
-  def draw(self):
-    print("draw")
-point1 = Point()
-point1.draw()
